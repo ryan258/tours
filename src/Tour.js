@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
 // grab all the info being passed down from Tours
-const Tour = ({ id, image, info, price, name }) => {
+// also grab the removeTour method
+const Tour = ({ id, image, info, price, name, removeTour }) => {
   // create a state variable to toggle the read more
   const [readMore, setReadMore] = useState(false);
   // enhance the data that is being mapped into each component
@@ -20,7 +21,10 @@ const Tour = ({ id, image, info, price, name }) => {
             {readMore ? `read less` : `read more`}
           </button>
         </p>
-        <button className="delete-btn">not interested</button>
+        {/* Finally use that removeTour method we've drilled down from App component */}
+        <button className="delete-btn" onClick={() => removeTour(id)}>
+          not interested
+        </button>
       </footer>
     </article>
   );

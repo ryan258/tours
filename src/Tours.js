@@ -2,7 +2,8 @@ import React from 'react';
 import Tour from './Tour';
 
 // take tours fetch data array passed in from App
-const Tours = ({ tours }) => {
+// pass removeTour method so it can be passed down to Tour component.
+const Tours = ({ tours, removeTour }) => {
   return (
     <section>
       <div className="title">
@@ -13,7 +14,8 @@ const Tours = ({ tours }) => {
         {/* Map over each item of the tours array */}
         {tours.map((tour) => (
           // Pass all the properties in each tour item down to the Tour component with the spread operator
-          <Tour key={tour.id} {...tour} />
+          // pass down the removeTour method as a prop
+          <Tour key={tour.id} {...tour} removeTour={removeTour} />
         ))}
       </div>
     </section>

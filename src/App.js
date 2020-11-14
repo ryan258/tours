@@ -51,6 +51,20 @@ function App() {
       </main>
     );
   }
+
+  if (!tours.length) {
+    return (
+      <main>
+        <div className="title">
+          <h2>no tours left</h2>
+          <button class="btn" onClick={fetchTours}>
+            refresh tour list
+          </button>
+        </div>
+      </main>
+    );
+  }
+
   return (
     <main>
       {/* pass removeTour method down as a prop */}
